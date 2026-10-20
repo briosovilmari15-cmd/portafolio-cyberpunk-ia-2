@@ -1,627 +1,394 @@
 <!DOCTYPE html>
-
 <html lang="es">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="theme-color" content="#080812">
-
-    <meta name="description" content="Portafolio profesional Cyberpunk de Ingeniería en Sistemas.">
-
-    <title>Cyberpunk | Mi Portafolio</title>
-
-    <style>
-
-        :root {
-
-            --fondo: #080812;
-
-            --panel: #111122;
-
-            --neon: #00f5ff;
-
-            --rosa: #ff00d4;
-
-            --texto: #f5f5ff;
-
-            --suave: #b7b7ce;
-
-        }
-
-        * {
-
-            margin: 0;
-
-            padding: 0;
-
-            box-sizing: border-box;
-
-        }
-
-        html {
-
-            scroll-behavior: smooth;
-
-        }
-
-        body {
-
-            background: var(--fondo);
-
-            color: var(--texto);
-
-            font-family: Arial, Helvetica, sans-serif;
-
-            line-height: 1.7;
-
-            overflow-x: hidden;
-
-        }
-
-        a {
-
-            color: inherit;
-
-            text-decoration: none;
-
-        }
-
-        .barra {
-
-            position: sticky;
-
-            top: 0;
-
-            z-index: 10;
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 20px;
-
-            padding: 18px 8%;
-
-            background: rgba(8, 8, 18, .94);
-
-            border-bottom: 1px solid #24243e;
-
-            backdrop-filter: blur(12px);
-
-        }
-
-        .logo {
-
-            color: var(--neon);
-
-            font-weight: 900;
-
-            font-size: 1.2rem;
-
-            text-shadow: 0 0 12px var(--neon);
-
-        }
-
-        nav {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 20px;
-
-        }
-
-        nav a {
-
-            color: var(--suave);
-
-            font-size: .9rem;
-
-            transition: color .3s;
-
-        }
-
-        nav a:hover {
-
-            color: var(--neon);
-
-        }
-
-        .hero {
-
-            min-height: 85vh;
-
-            display: flex;
-
-            flex-direction: column;
-
-            justify-content: center;
-
-            align-items: center;
-
-            text-align: center;
-
-            padding: 80px 20px;
-
-            background:
-
-                radial-gradient(ellipse at 50% 35%,
-
-                rgba(255, 0, 212, .14), transparent 55%),
-
-                radial-gradient(ellipse at 50% 80%,
-
-                rgba(0, 245, 255, .09), transparent 50%);
-
-        }
-
-        .etiqueta {
-
-            color: var(--neon);
-
-            letter-spacing: 4px;
-
-            font-size: .8rem;
-
-            margin-bottom: 20px;
-
-        }
-
-        h1 {
-
-            font-size: clamp(2.5rem, 8vw, 5.5rem);
-
-            line-height: 1.1;
-
-            margin-bottom: 25px;
-
-        }
-
-        h1 span {
-
-            color: var(--rosa);
-
-            text-shadow: 0 0 22px rgba(255, 0, 212, .6);
-
-        }
-
-        .hero p {
-
-            max-width: 650px;
-
-            color: var(--suave);
-
-            margin-bottom: 32px;
-
-        }
-
-        .boton {
-
-            display: inline-block;
-
-            padding: 12px 24px;
-
-            border: 1px solid var(--neon);
-
-            border-radius: 6px;
-
-            color: var(--neon);
-
-            transition: .3s;
-
-        }
-
-        .boton:hover {
-
-            background: var(--neon);
-
-            color: var(--fondo);
-
-            box-shadow: 0 0 25px rgba(0, 245, 255, .4);
-
-        }
-
-        section {
-
-            padding: 75px 8%;
-
-            scroll-margin-top: 75px;
-
-        }
-
-        .titulo {
-
-            font-size: clamp(1.8rem, 4vw, 2.5rem);
-
-            margin-bottom: 35px;
-
-        }
-
-        .titulo span {
-
-            color: var(--neon);
-
-        }
-
-        .sobre {
-
-            max-width: 850px;
-
-            color: var(--suave);
-
-        }
-
-        .rejilla {
-
-            display: grid;
-
-            grid-template-columns: repeat(3, minmax(0, 1fr));
-
-            gap: 22px;
-
-        }
-
-        .tarjeta {
-
-            background: var(--panel);
-
-            border: 1px solid #292944;
-
-            border-radius: 12px;
-
-            padding: 25px;
-
-            transition: transform .3s, border-color .3s;
-
-        }
-
-        .tarjeta:hover {
-
-            transform: translateY(-6px);
-
-            border-color: var(--neon);
-
-        }
-
-        .icono {
-
-            font-size: 2rem;
-
-            margin-bottom: 12px;
-
-        }
-
-        .tarjeta h3 {
-
-            color: var(--neon);
-
-            margin-bottom: 10px;
-
-        }
-
-        .tarjeta p {
-
-            color: var(--suave);
-
-            font-size: .95rem;
-
-        }
-
-        .habilidades {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 12px;
-
-        }
-
-        .habilidad {
-
-            border: 1px solid var(--rosa);
-
-            color: #ff9bed;
-
-            background: rgba(255, 0, 212, .06);
-
-            border-radius: 30px;
-
-            padding: 9px 17px;
-
-        }
-
-        .contacto {
-
-            text-align: center;
-
-            background: linear-gradient(
-
-                180deg, transparent, rgba(0, 245, 255, .05)
-
-            );
-
-        }
-
-        .contacto p {
-
-            color: var(--suave);
-
-            margin-bottom: 25px;
-
-        }
-
-        footer {
-
-            text-align: center;
-
-            padding: 25px 15px;
-
-            border-top: 1px solid #24243e;
-
-            color: var(--suave);
-
-            font-size: .85rem;
-
-        }
-
-        footer span {
-
-            color: var(--rosa);
-
-        }
-
-        @media (max-width: 750px) {
-
-            .barra {
-
-                flex-direction: column;
-
-                padding: 15px;
-
-            }
-
-            nav {
-
-                justify-content: center;
-
-                gap: 14px;
-
-            }
-
-            .rejilla {
-
-                grid-template-columns: 1fr;
-
-            }
-
-            section {
-
-                padding: 55px 7%;
-
-            }
-
-            .hero {
-
-                min-height: 75vh;
-
-            }
-
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-
-                scroll-behavior: auto;
-
-            }
-
-            *, *::before, *::after {
-
-                transition: none !important;
-
-            }
-
-        }
-
-    </style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080812">
+  <title>Vilmari Rosario Brioso | Portafolio Cyberpunk</title>
+
+  <style>
+    :root {
+      --fondo: #080812;
+      --panel: #121225;
+      --neon: #00f5ff;
+      --rosa: #ff00d4;
+      --texto: #f5f5ff;
+      --suave: #b7b7ce;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--fondo);
+      color: var(--texto);
+      font-family: Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 18px 8%;
+      background: #080812f5;
+      border-bottom: 1px solid #292944;
+    }
+
+    .logo {
+      color: var(--neon);
+      font-weight: bold;
+      text-shadow: 0 0 12px var(--neon);
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    nav a {
+      color: var(--suave);
+      font-size: 14px;
+    }
+
+    nav a:hover {
+      color: var(--neon);
+    }
+
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 70px 20px;
+      background:
+        radial-gradient(ellipse at 50% 35%,
+        #ff00d422, transparent 55%),
+        radial-gradient(ellipse at 50% 80%,
+        #00f5ff18, transparent 50%);
+    }
+
+    .etiqueta {
+      color: var(--neon);
+      letter-spacing: 3px;
+      font-size: 12px;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 7vw, 65px);
+      line-height: 1.2;
+      margin-bottom: 22px;
+    }
+
+    h1 span {
+      color: var(--rosa);
+      text-shadow: 0 0 20px #ff00d477;
+    }
+
+    .hero p {
+      color: var(--suave);
+      max-width: 650px;
+      margin-bottom: 28px;
+    }
+
+    .boton {
+      display: inline-block;
+      border: 1px solid var(--neon);
+      color: var(--neon);
+      padding: 11px 23px;
+      border-radius: 6px;
+      transition: .3s;
+    }
+
+    .boton:hover {
+      background: var(--neon);
+      color: var(--fondo);
+      box-shadow: 0 0 20px #00f5ff66;
+    }
+
+    section {
+      padding: 70px 8%;
+      scroll-margin-top: 85px;
+    }
+
+    .titulo {
+      font-size: 30px;
+      margin-bottom: 30px;
+    }
+
+    .titulo span {
+      color: var(--neon);
+    }
+
+    .sobre {
+      color: var(--suave);
+      max-width: 850px;
+    }
+
+    .datos {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 28px;
+    }
+
+    .dato, .tarjeta {
+      background: var(--panel);
+      border: 1px solid #292944;
+      border-radius: 12px;
+      padding: 24px;
+    }
+
+    .dato strong {
+      display: block;
+      color: var(--neon);
+      margin-bottom: 6px;
+    }
+
+    .rejilla {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .tarjeta {
+      transition: .3s;
+    }
+
+    .tarjeta:hover {
+      transform: translateY(-5px);
+      border-color: var(--neon);
+    }
+
+    .icono {
+      font-size: 32px;
+      margin-bottom: 10px;
+    }
+
+    .tarjeta h3 {
+      color: var(--neon);
+      margin-bottom: 10px;
+    }
+
+    .tarjeta p {
+      color: var(--suave);
+      font-size: 14px;
+    }
+
+    .habilidades {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .habilidad {
+      padding: 8px 15px;
+      border: 1px solid var(--rosa);
+      color: #ff9bed;
+      border-radius: 25px;
+    }
+
+    .contacto {
+      text-align: center;
+    }
+
+    .contacto p {
+      color: var(--suave);
+      margin-bottom: 25px;
+    }
+
+    footer {
+      border-top: 1px solid #292944;
+      padding: 25px 15px;
+      text-align: center;
+      color: var(--suave);
+      font-size: 13px;
+    }
+
+    footer span {
+      color: var(--rosa);
+    }
+
+    @media (max-width: 750px) {
+      header {
+        flex-direction: column;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .rejilla, .datos {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 50px 7%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        transition: none;
+      }
+    }
+  </style>
 </head>
 
 <body>
-
-    <header class="barra">
-
-        <a class="logo" href="#inicio">NEXUS_2077</a>
-
-        <nav aria-label="Navegación principal">
-
-            <a href="#inicio">Inicio</a>
-
-            <a href="#sobre-mi">Sobre mí</a>
-
-            <a href="#proyectos">Proyectos</a>
-
-            <a href="#habilidades">Habilidades</a>
-
-            <a href="#contacto">Contacto</a>
-
-        </nav>
-
-    </header>
-
-    <main>
-
-        <section class="hero" id="inicio">
-
-            <div class="etiqueta">SISTEMA INICIADO // VERSIÓN 2077</div>
-
-            <h1>MI PORTAFOLIO<br><span>CYBERPUNK</span></h1>
-
-            <p>
-
-                Tecnología, creatividad e innovación.
-
-                Explora mi espacio digital y conoce mi camino
-
-                en el mundo de la Ingeniería en Sistemas.
-
-            </p>
-
-            <a class="boton" href="#proyectos">
-
-                Explorar proyectos →
-
-            </a>
-
-        </section>
-
-        <section id="sobre-mi">
-
-            <h2 class="titulo"><span>01.</span> Sobre mí</h2>
-
-            <p class="sobre">
-
-                ¡Hola! Bienvenido a mi portafolio profesional.
-
-                Soy estudiante de Ingeniería en Sistemas y me interesa
-
-                el desarrollo de software, la programación y la tecnología.
-
-                Este espacio reúne mis conocimientos, habilidades y proyectos.
-
-            </p>
-
-        </section>
-
-        <section id="proyectos">
-
-            <h2 class="titulo"><span>02.</span> Mis proyectos</h2>
-
-            <div class="rejilla">
-
-                <article class="tarjeta">
-
-                    <div class="icono">💻</div>
-
-                    <h3>Desarrollo web</h3>
-
-                    <p>
-
-                        Creación de páginas web con HTML, CSS
-
-                        y diseños adaptables a diferentes pantallas.
-
-                    </p>
-
-                </article>
-
-                <article class="tarjeta">
-
-                    <div class="icono">⚙️</div>
-
-                    <h3>Programación</h3>
-
-                    <p>
-
-                        Desarrollo de soluciones y aplicaciones
-
-                        para resolver problemas mediante código.
-
-                    </p>
-
-                </article>
-
-                <article class="tarjeta">
-
-                    <div class="icono">🤖</div>
-
-                    <h3>Inteligencia artificial</h3>
-
-                    <p>
-
-                        Exploración de herramientas inteligentes
-
-                        para impulsar la creatividad y la productividad.
-
-                    </p>
-
-                </article>
-
-            </div>
-
-        </section>
-
-        <section id="habilidades">
-
-            <h2 class="titulo"><span>03.</span> Tecnologías</h2>
-
-            <div class="habilidades">
-
-                <span class="habilidad">HTML5</span>
-
-                <span class="habilidad">CSS3</span>
-
-                <span class="habilidad">JavaScript</span>
-
-                <span class="habilidad">C#</span>
-
-                <span class="habilidad">GitHub</span>
-
-                <span class="habilidad">Responsive Design</span>
-
-                <span class="habilidad">Inteligencia artificial</span>
-
-            </div>
-
-        </section>
-
-        <section class="contacto" id="contacto">
-
-            <h2 class="titulo"><span>04.</span> Conectemos</h2>
-
-            <p>
-
-                ¿Tienes una idea o un proyecto interesante?
-
-                Me encantaría seguir aprendiendo y creando.
-
-            </p>
-
-            <a class="boton"
-
-               href="https://github.com/"
-
-               target="_blank"
-
-               rel="noopener noreferrer">
-
-                Explorar GitHub ↗
-
-            </a>
-
-        </section>
-
-    </main>
-
-    <footer>
-
-        <p>© 2026 Mi Portafolio Cyberpunk | Creado con
-
-            <span>♥</span> y código.
-
-        </p>
-
-    </footer>
-
+  <header>
+    <a class="logo" href="#inicio">NEXUS_2077</a>
+
+    <nav aria-label="Navegación principal">
+      <a href="#inicio">Inicio</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="etiqueta">SISTEMA INICIADO // 2077</div>
+
+      <h1>VILMARI ROSARIO<br><span>BRIOSO</span></h1>
+
+      <p>
+        Estudiante de Ingeniería en Sistemas.
+        Tecnología, creatividad e innovación en un mundo digital
+        inspirado en el universo Cyberpunk.
+      </p>
+
+      <a class="boton" href="#proyectos">Explorar proyectos →</a>
+    </section>
+
+    <section id="sobre-mi">
+      <h2 class="titulo"><span>01.</span> Sobre mí</h2>
+
+      <p class="sobre">
+        ¡Hola! Soy Vilmari Rosario Brioso, estudiante de
+        Ingeniería en Sistemas. Me interesa la programación,
+        el desarrollo de software y las nuevas tecnologías.
+        Este portafolio presenta mi perfil académico,
+        mis habilidades y mis proyectos.
+      </p>
+
+      <div class="datos">
+        <div class="dato">
+          <strong>Nombre completo</strong>
+          Vilmari Rosario Brioso
+        </div>
+
+        <div class="dato">
+          <strong>Matrícula</strong>
+          24-SISN-8-043
+        </div>
+
+        <div class="dato">
+          <strong>Carrera</strong>
+          Ingeniería en Sistemas
+        </div>
+
+        <div class="dato">
+          <strong>Especialidad de interés</strong>
+          Programación y tecnología
+        </div>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2 class="titulo"><span>02.</span> Mis proyectos</h2>
+
+      <div class="rejilla">
+        <article class="tarjeta">
+          <div class="icono">💻</div>
+          <h3>Desarrollo web</h3>
+          <p>
+            Diseño de páginas web con HTML y CSS,
+            con interfaces adaptables a distintos dispositivos.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="icono">⚙️</div>
+          <h3>Programación</h3>
+          <p>
+            Aprendizaje de programación y desarrollo
+            de soluciones mediante código.
+          </p>
+        </article>
+
+        <article class="tarjeta">
+          <div class="icono">🤖</div>
+          <h3>Inteligencia artificial</h3>
+          <p>
+            Exploración de herramientas inteligentes
+            para crear soluciones innovadoras.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="habilidades">
+      <h2 class="titulo"><span>03.</span> Tecnologías</h2>
+
+      <div class="habilidades">
+        <span class="habilidad">HTML5</span>
+        <span class="habilidad">CSS3</span>
+        <span class="habilidad">JavaScript</span>
+        <span class="habilidad">C#</span>
+        <span class="habilidad">GitHub</span>
+        <span class="habilidad">Diseño adaptable</span>
+      </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+      <h2 class="titulo"><span>04.</span> Contacto</h2>
+
+      <p>
+        Gracias por visitar mi portafolio.
+        ¡Sigamos explorando el mundo de la tecnología!
+      </p>
+
+      <a class="boton"
+         href="https://github.com/"
+         target="_blank"
+         rel="noopener noreferrer">
+        Explorar GitHub ↗
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Vilmari Rosario Brioso |
+    Matrícula 24-SISN-8-043 |
+    <span>Portafolio Cyberpunk</span>
+  </footer>
 </body>
-
 </html>
