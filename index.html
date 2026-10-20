@@ -1,21 +1,627 @@
-# 🌃 Portafolio Profesional Cyberpunk con Inteligencia Artificial
+<!DOCTYPE html>
 
-Portafolio web profesional desarrollado con estética ciberpunk oscura, modo Dark/Light con contraste garantizado, efecto de fondo Matrix translúcido y diseño 100% responsivo[cite: 1, 3, 5, 7].
+<html lang="es">
 
-## 🎯 Objetivo del Proyecto
-Dominar la técnica de *Prompt Engineering* aplicada al desarrollo web, convirtiendo requerimientos formales de software en código funcional, estructurado y desplegado públicamente.
+<head>
 
-## 🛠️ Tecnologías Utilizadas
-* **HTML5** (Estructura semántica)[cite: 5, 7]
-* **CSS3** (Estilos personalizados y estética ciberpunk)[cite: 5, 7]
-* **Bootstrap 5** (Diseño responsivo y componentes)[cite: 5, 7]
-* **JavaScript** (Efecto Matrix en Canvas y filtros dinámicos)[cite: 5, 7]
-* **Font Awesome & Devicon** (Íconos oficiales y vectoriales)[cite: 7, 8]
+    <meta charset="UTF-8">
 
-## 🌐 Enlaces del Despliegue
-* **Repositorio en GitHub:** [https://github.com/tu-usuario/portafolio-cyberpunk-ia](https://github.com/tu-usuario/portafolio-cyberpunk-ia) *(Reemplaza con tu enlace real)*
-* **GitHub Pages (URL Pública):** [https://tu-usuario.github.io/portafolio-cyberpunk-ia/](https://tu-usuario.github.io/portafolio-cyberpunk-ia/) *(Reemplaza con tu enlace real)*
-* **Alternativa en Vercel:** [https://portafolio-cyberpunk-ia.vercel.app/](https://portafolio-cyberpunk-ia.vercel.app/) *(Opcional)*
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-## 📜 Licencia
-Este proyecto está bajo la **Licencia MIT**[cite: 1, 10].
+    <meta name="theme-color" content="#080812">
+
+    <meta name="description" content="Portafolio profesional Cyberpunk de Ingeniería en Sistemas.">
+
+    <title>Cyberpunk | Mi Portafolio</title>
+
+    <style>
+
+        :root {
+
+            --fondo: #080812;
+
+            --panel: #111122;
+
+            --neon: #00f5ff;
+
+            --rosa: #ff00d4;
+
+            --texto: #f5f5ff;
+
+            --suave: #b7b7ce;
+
+        }
+
+        * {
+
+            margin: 0;
+
+            padding: 0;
+
+            box-sizing: border-box;
+
+        }
+
+        html {
+
+            scroll-behavior: smooth;
+
+        }
+
+        body {
+
+            background: var(--fondo);
+
+            color: var(--texto);
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            line-height: 1.7;
+
+            overflow-x: hidden;
+
+        }
+
+        a {
+
+            color: inherit;
+
+            text-decoration: none;
+
+        }
+
+        .barra {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 10;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 18px 8%;
+
+            background: rgba(8, 8, 18, .94);
+
+            border-bottom: 1px solid #24243e;
+
+            backdrop-filter: blur(12px);
+
+        }
+
+        .logo {
+
+            color: var(--neon);
+
+            font-weight: 900;
+
+            font-size: 1.2rem;
+
+            text-shadow: 0 0 12px var(--neon);
+
+        }
+
+        nav {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 20px;
+
+        }
+
+        nav a {
+
+            color: var(--suave);
+
+            font-size: .9rem;
+
+            transition: color .3s;
+
+        }
+
+        nav a:hover {
+
+            color: var(--neon);
+
+        }
+
+        .hero {
+
+            min-height: 85vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 80px 20px;
+
+            background:
+
+                radial-gradient(ellipse at 50% 35%,
+
+                rgba(255, 0, 212, .14), transparent 55%),
+
+                radial-gradient(ellipse at 50% 80%,
+
+                rgba(0, 245, 255, .09), transparent 50%);
+
+        }
+
+        .etiqueta {
+
+            color: var(--neon);
+
+            letter-spacing: 4px;
+
+            font-size: .8rem;
+
+            margin-bottom: 20px;
+
+        }
+
+        h1 {
+
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+
+        }
+
+        h1 span {
+
+            color: var(--rosa);
+
+            text-shadow: 0 0 22px rgba(255, 0, 212, .6);
+
+        }
+
+        .hero p {
+
+            max-width: 650px;
+
+            color: var(--suave);
+
+            margin-bottom: 32px;
+
+        }
+
+        .boton {
+
+            display: inline-block;
+
+            padding: 12px 24px;
+
+            border: 1px solid var(--neon);
+
+            border-radius: 6px;
+
+            color: var(--neon);
+
+            transition: .3s;
+
+        }
+
+        .boton:hover {
+
+            background: var(--neon);
+
+            color: var(--fondo);
+
+            box-shadow: 0 0 25px rgba(0, 245, 255, .4);
+
+        }
+
+        section {
+
+            padding: 75px 8%;
+
+            scroll-margin-top: 75px;
+
+        }
+
+        .titulo {
+
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+
+            margin-bottom: 35px;
+
+        }
+
+        .titulo span {
+
+            color: var(--neon);
+
+        }
+
+        .sobre {
+
+            max-width: 850px;
+
+            color: var(--suave);
+
+        }
+
+        .rejilla {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+
+            gap: 22px;
+
+        }
+
+        .tarjeta {
+
+            background: var(--panel);
+
+            border: 1px solid #292944;
+
+            border-radius: 12px;
+
+            padding: 25px;
+
+            transition: transform .3s, border-color .3s;
+
+        }
+
+        .tarjeta:hover {
+
+            transform: translateY(-6px);
+
+            border-color: var(--neon);
+
+        }
+
+        .icono {
+
+            font-size: 2rem;
+
+            margin-bottom: 12px;
+
+        }
+
+        .tarjeta h3 {
+
+            color: var(--neon);
+
+            margin-bottom: 10px;
+
+        }
+
+        .tarjeta p {
+
+            color: var(--suave);
+
+            font-size: .95rem;
+
+        }
+
+        .habilidades {
+
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 12px;
+
+        }
+
+        .habilidad {
+
+            border: 1px solid var(--rosa);
+
+            color: #ff9bed;
+
+            background: rgba(255, 0, 212, .06);
+
+            border-radius: 30px;
+
+            padding: 9px 17px;
+
+        }
+
+        .contacto {
+
+            text-align: center;
+
+            background: linear-gradient(
+
+                180deg, transparent, rgba(0, 245, 255, .05)
+
+            );
+
+        }
+
+        .contacto p {
+
+            color: var(--suave);
+
+            margin-bottom: 25px;
+
+        }
+
+        footer {
+
+            text-align: center;
+
+            padding: 25px 15px;
+
+            border-top: 1px solid #24243e;
+
+            color: var(--suave);
+
+            font-size: .85rem;
+
+        }
+
+        footer span {
+
+            color: var(--rosa);
+
+        }
+
+        @media (max-width: 750px) {
+
+            .barra {
+
+                flex-direction: column;
+
+                padding: 15px;
+
+            }
+
+            nav {
+
+                justify-content: center;
+
+                gap: 14px;
+
+            }
+
+            .rejilla {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            section {
+
+                padding: 55px 7%;
+
+            }
+
+            .hero {
+
+                min-height: 75vh;
+
+            }
+
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+
+                scroll-behavior: auto;
+
+            }
+
+            *, *::before, *::after {
+
+                transition: none !important;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <header class="barra">
+
+        <a class="logo" href="#inicio">NEXUS_2077</a>
+
+        <nav aria-label="Navegación principal">
+
+            <a href="#inicio">Inicio</a>
+
+            <a href="#sobre-mi">Sobre mí</a>
+
+            <a href="#proyectos">Proyectos</a>
+
+            <a href="#habilidades">Habilidades</a>
+
+            <a href="#contacto">Contacto</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="hero" id="inicio">
+
+            <div class="etiqueta">SISTEMA INICIADO // VERSIÓN 2077</div>
+
+            <h1>MI PORTAFOLIO<br><span>CYBERPUNK</span></h1>
+
+            <p>
+
+                Tecnología, creatividad e innovación.
+
+                Explora mi espacio digital y conoce mi camino
+
+                en el mundo de la Ingeniería en Sistemas.
+
+            </p>
+
+            <a class="boton" href="#proyectos">
+
+                Explorar proyectos →
+
+            </a>
+
+        </section>
+
+        <section id="sobre-mi">
+
+            <h2 class="titulo"><span>01.</span> Sobre mí</h2>
+
+            <p class="sobre">
+
+                ¡Hola! Bienvenido a mi portafolio profesional.
+
+                Soy estudiante de Ingeniería en Sistemas y me interesa
+
+                el desarrollo de software, la programación y la tecnología.
+
+                Este espacio reúne mis conocimientos, habilidades y proyectos.
+
+            </p>
+
+        </section>
+
+        <section id="proyectos">
+
+            <h2 class="titulo"><span>02.</span> Mis proyectos</h2>
+
+            <div class="rejilla">
+
+                <article class="tarjeta">
+
+                    <div class="icono">💻</div>
+
+                    <h3>Desarrollo web</h3>
+
+                    <p>
+
+                        Creación de páginas web con HTML, CSS
+
+                        y diseños adaptables a diferentes pantallas.
+
+                    </p>
+
+                </article>
+
+                <article class="tarjeta">
+
+                    <div class="icono">⚙️</div>
+
+                    <h3>Programación</h3>
+
+                    <p>
+
+                        Desarrollo de soluciones y aplicaciones
+
+                        para resolver problemas mediante código.
+
+                    </p>
+
+                </article>
+
+                <article class="tarjeta">
+
+                    <div class="icono">🤖</div>
+
+                    <h3>Inteligencia artificial</h3>
+
+                    <p>
+
+                        Exploración de herramientas inteligentes
+
+                        para impulsar la creatividad y la productividad.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <section id="habilidades">
+
+            <h2 class="titulo"><span>03.</span> Tecnologías</h2>
+
+            <div class="habilidades">
+
+                <span class="habilidad">HTML5</span>
+
+                <span class="habilidad">CSS3</span>
+
+                <span class="habilidad">JavaScript</span>
+
+                <span class="habilidad">C#</span>
+
+                <span class="habilidad">GitHub</span>
+
+                <span class="habilidad">Responsive Design</span>
+
+                <span class="habilidad">Inteligencia artificial</span>
+
+            </div>
+
+        </section>
+
+        <section class="contacto" id="contacto">
+
+            <h2 class="titulo"><span>04.</span> Conectemos</h2>
+
+            <p>
+
+                ¿Tienes una idea o un proyecto interesante?
+
+                Me encantaría seguir aprendiendo y creando.
+
+            </p>
+
+            <a class="boton"
+
+               href="https://github.com/"
+
+               target="_blank"
+
+               rel="noopener noreferrer">
+
+                Explorar GitHub ↗
+
+            </a>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <p>© 2026 Mi Portafolio Cyberpunk | Creado con
+
+            <span>♥</span> y código.
+
+        </p>
+
+    </footer>
+
+</body>
+
+</html>
