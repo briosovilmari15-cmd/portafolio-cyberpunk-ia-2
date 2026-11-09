@@ -77,9 +77,20 @@ footer {
     section {
         padding: 30px 10px;
     }
+
+    /* Recuperar el fondo oscuro del portafolio */
+body {
+    background-color: #0a0a0a !important;
+    color: #ffffff !important;
 }
-/* Texto blanco en los cuadros de información */
-.info-box,
+
+/* Mantener los cuadros oscuros */
+.info-box {
+    background-color: #151515 !important;
+    color: #ffffff !important;
+}
+
+/* Letras blancas */
 .info-box p,
 .info-box span,
 .info-box strong,
