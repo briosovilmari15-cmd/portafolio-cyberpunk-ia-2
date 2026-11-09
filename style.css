@@ -1,0 +1,80 @@
+/* Estilos del portafolio Cyberpunk */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0f;
+    color: #ffffff;
+}
+
+header {
+    background: #11111b;
+    padding: 20px;
+    text-align: center;
+    border-bottom: 2px solid #00ffff;
+}
+
+header h1 {
+    color: #00ffff;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: #ff00ff;
+    text-decoration: none;
+    margin: 10px;
+}
+
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #00ffff;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: #171725;
+    color: white;
+    border: 1px solid #ff00ff;
+    padding: 20px;
+    margin: 15px;
+}
+
+button {
+    background: #ff00ff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #11111b;
+}
+
+/* Diseño adaptable a celulares */
+
+@media (max-width: 768px) {
+    nav a {
+        display: block;
+        margin: 15px;
+    }
+
+    section {
+        padding: 30px 10px;
+    }
+}
