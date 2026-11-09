@@ -78,3 +78,13 @@ footer {
         padding: 30px 10px;
     }
 }
+/* Texto blanco en los cuadros de información */
+.info-box,
+.info-box p,
+.info-box span,
+.info-box strong,
+.info-box h3,
+.info-box h4,
+.info-box label {
+    color: #ffffff !important;
+}
